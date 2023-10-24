@@ -1,6 +1,8 @@
 package com.example.game_project;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Modality;
 import javafx.stage.StageStyle;
@@ -14,14 +16,21 @@ public class StageExamples extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        //primaryStage.setTitle("JavaFX App");
+        primaryStage.setTitle("JavaFX App");
+
+        VBox vbox = new VBox();
+        Scene scene = new Scene(vbox);
+
+        primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
+
 
         Stage stage = new Stage();
         stage.setTitle("Main Stage");
 
         //stage.initModality(Modality.APPLICATION_MODAL);
         //stage.initModality(Modality.WINDOW_MODAL);
-        //stage.initModality(Modality.NONE);
+        stage.initModality(Modality.NONE);
 
         //stage.initOwner(primaryStage);
 
@@ -31,7 +40,7 @@ public class StageExamples extends Application {
         //stage.initStyle(StageStyle.UNIFIED);
         stage.initStyle(StageStyle.UTILITY);
 
-        //primaryStage.show();
+        primaryStage.show();
 
         stage.showAndWait();
 
