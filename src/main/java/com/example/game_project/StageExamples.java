@@ -1,7 +1,12 @@
 package com.example.game_project;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Modality;
@@ -16,23 +21,52 @@ public class StageExamples extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
+        //StackPane
+        /*Button btn = new Button("Hello world");
+        StackPane root = new StackPane();
+        root.getChildren().add(btn);*/
+
+
+        //FlowPlane
+        FlowPane root = new FlowPane();
+        root.setPadding(new Insets(5));
+        root.setHgap(25);
+        root.setVgap(25);
+
+        Button exitButton = new Button(" Exit ");
+        exitButton.setPrefWidth(70);
+        Button showButton = new Button(" Show ");
+        showButton.setPrefWidth(70);
+        TextField text = new TextField(" This is a text field.");
+        text.setPrefWidth(250);
+
+        root.getChildren().addAll(exitButton,showButton,text);
+
+
+
+
+
+
+
+
+
+
+        //setPrimaryStage
         primaryStage.setTitle("JavaFX App");
-
-        VBox vbox = new VBox();
-        Scene scene = new Scene(vbox);
-
+        Scene scene = new Scene(root,300,250);
         primaryStage.setScene(scene);
-        primaryStage.setFullScreen(true);
+       //primaryStage.setFullScreen(true);
 
-
+        //setSTAGE
         Stage stage = new Stage();
         stage.setTitle("Main Stage");
 
         //stage.initModality(Modality.APPLICATION_MODAL);
-        //stage.initModality(Modality.WINDOW_MODAL);
-        stage.initModality(Modality.NONE);
+        stage.initModality(Modality.WINDOW_MODAL);
+        //stage.initModality(Modality.NONE);
 
-        //stage.initOwner(primaryStage);
+        stage.initOwner(primaryStage);
 
         //stage.initStyle(StageStyle.DECORATED);
         //stage.initStyle(StageStyle.UNDECORATED);
@@ -40,8 +74,8 @@ public class StageExamples extends Application {
         //stage.initStyle(StageStyle.UNIFIED);
         stage.initStyle(StageStyle.UTILITY);
 
+        //showStage
         primaryStage.show();
-
         stage.showAndWait();
 
     }
